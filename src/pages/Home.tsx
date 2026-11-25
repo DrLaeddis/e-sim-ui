@@ -4,6 +4,7 @@ import Searchbar from "../components/Searchbar";
 import { FILTER_CONFIG, packageData } from "../libs/data";
 import BottomFilter from "../components/BottomFilter";
 import IconDown from "../assets/IconDown";
+import Header from "../components/Header";
 
 type FilterKey = keyof typeof FILTER_CONFIG;
 
@@ -33,6 +34,12 @@ export default function HomePage() {
     return (
         <>
             <div className="flex-1 flex flex-col">
+                <div className="p-4">
+                    <Header 
+                        title="Travel eSIM"
+                    />  
+                </div>
+
                 <div className="p-4 space-y-3">
                     <Searchbar 
                         search={search}
@@ -54,11 +61,12 @@ export default function HomePage() {
                 </div>
 
                 <div className="bg-white rounded-t-3xl flex-1">
-                    <div className="grid grid-cols-2 p-4 gap-4">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 p-4 gap-4">
                         {filterData.length > 0 ? (
                             filterData.map((item: any, index: number) => (
                                 <ItemCard 
                                     key={index}
+                                    id={item.id}
                                     title={item.title}
                                     region={item.region}
                                     type={item.type}
