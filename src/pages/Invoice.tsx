@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import StepIndicator from "../components/StepIndicator";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { priceFormat } from "../libs/formatter";
 import IconSuccess from "../assets/iconSuccess";
 import IconCopy from "../assets/iconCopy";
@@ -36,10 +36,6 @@ export default function InvoicePage() {
             randomRef: `${Math.floor(1 + Math.random() * 9)}${digits(13)}`,
         };
     }, []);
-
-    useEffect(() => {
-        console.log("state", state)
-    }, [])
 
     const maskWhatsapp = (phone: string) => {
         if (!phone) return "";
